@@ -115,6 +115,7 @@
    var correct = 0;
    $("#questions-display").hide();
    $("#submit-button").hide();
+    displayResults(){return};
     
   }
   reset();
