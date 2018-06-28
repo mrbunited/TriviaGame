@@ -6,8 +6,8 @@
   // hide quiz questions in the beginning
    $("#questions-display").hide();
    $("#submit-button").hide();
-   $("#results").hide();
-  
+    $("#results").hide();
+
   
    function submitAnswers(){
   
@@ -100,9 +100,7 @@
       // what happens when start button is clicked
   function submit(){
     // show questions
-   $("#questions-display").hide();
-   $("#submit-button").hide();
-    $("#results").show();
+
    submitAnswers();
    displayResults();
   stop();
@@ -110,7 +108,9 @@
   
   // make a function for wrong/correct answers put this function in stop function to display them when the time is up (if statements)
   function displayResults(){
-     $("#results").show();
+   $("#questions-display").hide();
+   $("#submit-button").hide();
+    $("#results").show();
   $("#results").text("You answered correctly " + correct + " questions out of 5.");
   
   }
