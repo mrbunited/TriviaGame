@@ -107,6 +107,7 @@
   
   // make a function for wrong/correct answers put this function in stop function to display them when the time is up (if statements)
   function displayResults(){
+     $("#results").show();
   $("#results").text("You answered correctly " + correct + " questions out of 5.");
   
   }
