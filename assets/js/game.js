@@ -6,7 +6,7 @@
   // hide quiz questions in the beginning
    $("#questions-display").hide();
    $("#submit-button").hide();
-  
+   $("#results").hide();
   
   
    function submitAnswers(){
@@ -83,7 +83,6 @@
     runTimer();
     // clear previous answers
     document.getElementById("questions-display").reset();
-    $("#results").reset();
   }
   
      //  The stop function to stop timer from going and display results
@@ -114,12 +113,12 @@
     
     
     // FIX: results are still showing up on game restarted
-  function reset(){
-   var correct = 0;
-   $("#questions-display").hide();
-   $("#submit-button").hide();
- $("#results").hide();
+ // function reset(){
+ //  var correct = 0;
+ //  $("#questions-display").hide();
+ //  $("#submit-button").hide();
+// $("#results").hide();
     
-  }
-  reset();
+ // }
+ // reset();
   });
