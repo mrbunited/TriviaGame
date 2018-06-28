@@ -1,0 +1,177 @@
+
+
+// create an object for quiz questions 
+// create variables
+
+// var allQuestions = [{
+//     question: "What is the capital of Australia?",
+//     choices: ["Adelaide", "Canberra", "Sydney", "Melbourne"],
+//     correctAnswer: 1
+//   },
+
+//   {
+//     question: "What is the capital of Bolivia?",
+//     choices: ["Adelaide", "Canberra", "Sydney", "Melbourne"],
+//     correctAnswer: 1  
+//   },
+
+//   {
+//     question: "What is the capital of Canada?",
+//     choices: ["Ottawa", "Toronto", "Quebec", "Vancouver"],
+//     correctAnswer: 0  
+//   },
+
+//   {
+//     question: "What is the capital of Slovakia?",
+//     choices: ["Trnava", "Poprad", "Bratislava", "Bardejov"],
+//     correctAnswer: 2  
+//   },
+
+//   {
+//     question: "What is the capital of Japan?",
+//     choices: ["Kioto", "Tokyo", "Sendai", "Sapporo"],
+//     correctAnswer: 1  
+//   },
+
+//   {
+//     question: "What is the capital of Finland?",
+//     choices: ["Turku", "Oulu", "Lappeenranta", "Helsinki"],
+//     correctAnswer: 3  
+//   }];
+
+
+  // {
+  //   question: "",
+  //   choices: {
+  //     a: "",
+  //     b: "",
+  //     c: "",
+  //     d: ""},
+  //   correctAnswer: "a" 
+  // },
+
+
+  // }];
+
+
+  $(document).ready(function(){
+
+    var correct = 0;
+    var wrong = 0;
+  
+  
+  
+  // hide quiz questions
+   $("#questions-display").hide();
+   $("#submit-button").hide();
+  
+  
+  
+   function submitAnswers(){
+  
+    // store response values
+    var q1 = document.forms["questions-form"]["q1"].value;
+    var q2 = document.forms["questions-form"]["q2"].value;
+    var q3 = document.forms["questions-form"]["q3"].value;
+    var q4 = document.forms["questions-form"]["q4"].value;
+    var q5 = document.forms["questions-form"]["q5"].value;
+  
+  var correctAnswer = ["b", "a", "c", "b", "d"];
+  
+  
+  // put htis in a loop somehow
+  
+  if ( q1 == correctAnswer[0]){
+  correct++;
+  }
+  if ( q2 == correctAnswer[1]){
+  correct++;
+  }
+  if ( q3 == correctAnswer[2]){
+  correct++;
+  }
+  if ( q4 == correctAnswer[3]){
+  correct++;
+  }
+  if ( q5 == correctAnswer[4]){
+  correct++;
+  
+  } 
+  else {
+  wrong++;
+  }
+  
+  }
+  
+  
+  
+  // create a timer
+  
+  
+  var seconds = 30;
+  var intervalId;
+  
+      function runTimer() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+       
+      }
+  
+      //  The decrement function to count down seconds.
+      function decrement() {
+        seconds--;
+        $("#count-down").html("<h2>" + seconds + " seconds left </h2>");
+        if (seconds === 0) {
+          $("#questions-display").hide();
+          $("#submit-button").hide();
+          stop();
+          submitAnswers();
+          displayResults();
+        }
+      }
+  
+  
+  
+  
+      //  When the start button gets clicked, run the start function.
+      $("#start").on("click", start);  
+      // what happens when start button is clicked
+  function start(){
+    // show questions
+   $("#questions-display").show();
+   $("#submit-button").show();
+    // start timer
+    runTimer();
+    // clear previous answers
+    document.getElementById("questions-display").reset();
+    $("#results").reset();
+  }
+  
+     //  The stop function to stop timer from going and display results
+      function stop() {
+        clearInterval(intervalId);
+        $("#questions-display").hide();
+        $("#submit-button").hide();
+  
+      }    
+  
+  // when subit button is clicked
+  $("#submit-button").on("click", submit);  
+      // what happens when start button is clicked
+  function submit(){
+    // show questions
+   $("#questions-display").hide();
+   $("#submit-button").hide();
+   submitAnswers();
+   displayResults();
+  stop();
+  }
+  
+  // make a function for wrong/correct answers put this function in stop function to display them when the time is up (if statements)
+  function displayResults(){
+  $("#results").text("You answered correctly " + correct + " questions out of 5.");
+  
+  }
+  
+  
+  });
