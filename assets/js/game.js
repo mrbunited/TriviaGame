@@ -63,7 +63,6 @@
         if (seconds === 0) {
           $("#questions-display").hide();
           $("#submit-button").hide();
-          $("#results").show();
           stop();
           submitAnswers();
           displayResults();
@@ -80,7 +79,6 @@
     // show questions
    $("#questions-display").show();
    $("#submit-button").show();
-    $("#results").hide();
     // start timer
     runTimer();
     // clear previous answers
@@ -99,8 +97,6 @@
   $("#submit-button").on("click", submit);  
       // what happens when start button is clicked
   function submit(){
-    // show questions
-
    submitAnswers();
    displayResults();
   stop();
