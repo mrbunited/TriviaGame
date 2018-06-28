@@ -1,13 +1,10 @@
-  $(document).ready(function(){
+    $(document).ready(function(){
 
     var correct = 0;
   
-  
-  // hide quiz questions in the beginning
+  // hide quiz questions
    $("#questions-display").hide();
    $("#submit-button").hide();
-    $("#results").hide();
-
   
    function submitAnswers(){
   
@@ -72,8 +69,8 @@
   
   
   
-      //  When the start button gets clicked, run the start function.
-      $("#start").on("click", start);  
+//  When the start button gets clicked, run the start function.
+$("#start").on("click", start);  
       // what happens when start button is clicked
   function start(){
     // show questions
@@ -83,6 +80,7 @@
     runTimer();
     // clear previous answers
     document.getElementById("questions-display").reset();
+    // $("#results").hide();
   }
   
      //  The stop function to stop timer from going and display results
@@ -97,6 +95,9 @@
   $("#submit-button").on("click", submit);  
       // what happens when start button is clicked
   function submit(){
+    // show questions
+   $("#questions-display").hide();
+   $("#submit-button").hide();
    submitAnswers();
    displayResults();
   stop();
@@ -104,21 +105,16 @@
   
   // make a function for wrong/correct answers put this function in stop function to display them when the time is up (if statements)
   function displayResults(){
-   $("#questions-display").hide();
-   $("#submit-button").hide();
-    $("#results").show();
   $("#results").text("You answered correctly " + correct + " questions out of 5.");
-  
   }
-    
-    
-    // FIX: results are still showing up on game restarted
- // function reset(){
- //  var correct = 0;
- //  $("#questions-display").hide();
- //  $("#submit-button").hide();
-// $("#results").hide();
-    
- // }
- // reset();
+
+      //FIX: results are showing up on start button
+  function reset(){
+    var correct = 0;
+    $("#questions-display").hide();
+    $("#submit-button").hide();
+    $("#results").hide();
+  }
+
   });
+  
