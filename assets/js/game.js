@@ -111,11 +111,14 @@
   $("#results").text("You answered correctly " + correct + " questions out of 5.");
   
   }
+    
+    
+    // FIX: results are still showing up on game restarted
   function reset(){
    var correct = 0;
    $("#questions-display").hide();
    $("#submit-button").hide();
-    displayResults(){return};
+ $("#results").hide();
     
   }
   reset();
