@@ -1,67 +1,9 @@
-
-
-// create an object for quiz questions 
-// create variables
-
-// var allQuestions = [{
-//     question: "What is the capital of Australia?",
-//     choices: ["Adelaide", "Canberra", "Sydney", "Melbourne"],
-//     correctAnswer: 1
-//   },
-
-//   {
-//     question: "What is the capital of Bolivia?",
-//     choices: ["Adelaide", "Canberra", "Sydney", "Melbourne"],
-//     correctAnswer: 1  
-//   },
-
-//   {
-//     question: "What is the capital of Canada?",
-//     choices: ["Ottawa", "Toronto", "Quebec", "Vancouver"],
-//     correctAnswer: 0  
-//   },
-
-//   {
-//     question: "What is the capital of Slovakia?",
-//     choices: ["Trnava", "Poprad", "Bratislava", "Bardejov"],
-//     correctAnswer: 2  
-//   },
-
-//   {
-//     question: "What is the capital of Japan?",
-//     choices: ["Kioto", "Tokyo", "Sendai", "Sapporo"],
-//     correctAnswer: 1  
-//   },
-
-//   {
-//     question: "What is the capital of Finland?",
-//     choices: ["Turku", "Oulu", "Lappeenranta", "Helsinki"],
-//     correctAnswer: 3  
-//   }];
-
-
-  // {
-  //   question: "",
-  //   choices: {
-  //     a: "",
-  //     b: "",
-  //     c: "",
-  //     d: ""},
-  //   correctAnswer: "a" 
-  // },
-
-
-  // }];
-
-
   $(document).ready(function(){
 
     var correct = 0;
-    var wrong = 0;
   
   
-  
-  // hide quiz questions
+  // hide quiz questions in the beginning
    $("#questions-display").hide();
    $("#submit-button").hide();
   
@@ -97,9 +39,6 @@
   correct++;
   
   } 
-  else {
-  wrong++;
-  }
   
   }
   
@@ -172,6 +111,11 @@
   $("#results").text("You answered correctly " + correct + " questions out of 5.");
   
   }
-  
-  
+  function reset(){
+   var correct = 0;
+   $("#questions-display").hide();
+   $("#submit-button").hide();
+    
+  }
+  reset();
   });
