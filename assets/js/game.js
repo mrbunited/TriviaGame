@@ -63,6 +63,7 @@
         if (seconds === 0) {
           $("#questions-display").hide();
           $("#submit-button").hide();
+          $("#results").show();
           stop();
           submitAnswers();
           displayResults();
@@ -79,6 +80,7 @@
     // show questions
    $("#questions-display").show();
    $("#submit-button").show();
+    $("#results").hide();
     // start timer
     runTimer();
     // clear previous answers
@@ -100,6 +102,7 @@
     // show questions
    $("#questions-display").hide();
    $("#submit-button").hide();
+    $("#results").show();
    submitAnswers();
    displayResults();
   stop();
